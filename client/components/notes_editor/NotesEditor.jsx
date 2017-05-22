@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './notes_editor.less'
+import ColorPicker from '../color_picker/ColorPicker.jsx';
 
 const NotesEditor = React.createClass({
 
@@ -53,6 +54,10 @@ const NotesEditor = React.createClass({
                     onChange={this.handleTextChange}
                 />
                 <div className='note-editor-footer'>
+                    <ColorPicker
+                        value={this.state.color}
+                        onChange={this.handleColorChange}
+                    />
                     <button
                         className='note-editor-button'
                         disabled={!this.state.text}

@@ -3,10 +3,10 @@ import React from 'react';
 import NoteEditor from '../notes_editor/NotesEditor.jsx';
 import NotesGrid from '../notes_grid/NotesGrid.jsx';
 
-import './App.less';
+import './app.less';
 
-/*import NotesStore from '../stores/NotesStore';
-import NotesActions from '../actions/NotesActions';
+import NotesStore from '../../stores/index';
+import NotesActions from '../../actions/index';
 
 
 
@@ -15,10 +15,10 @@ function getStateFromFlux() {
         isLoading: NotesStore.isLoading(),
         notes: NotesStore.getNotes()
     };
-}*/
+}
 
 const App = React.createClass({
-    /*getInitialState() {
+    getInitialState() {
         return getStateFromFlux();
     },
 
@@ -40,10 +40,10 @@ const App = React.createClass({
 
     handleNoteAdd(noteData) {
         NotesActions.createNote(noteData);
-    },*/
+    },
 
     handleNoteAdd(data) {
-        console.log(data);
+        NotesActions.createNote(data);
     },
 
     render() {
@@ -51,14 +51,14 @@ const App = React.createClass({
             <div className='app'>
                 <h2 className='app-header'>Заметки</h2>
                 <NoteEditor onNoteAdd={this.handleNoteAdd} />
-                <NotesGrid />
+                <NotesGrid notes={this.state.notes} onNoteDelete={this.handleNoteDelete} />
             </div>
         );
     },
 
-    /*_onChange() {
+    _onChange() {
         this.setState(getStateFromFlux());
-    }*/
+    }
 });
 
 export default App;

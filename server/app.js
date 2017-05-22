@@ -2,6 +2,7 @@
  * Created by Konstantin on 22.05.2017.
  */
 import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import { port } from  '../config/config.json';
@@ -13,6 +14,9 @@ const app = express();
 
 //преобрахование запросов в json-формат
 app.use( bodyParser.json() );
+
+// Allow requests from any origin
+app.use(cors({ origin: '*' }));
 
 app.get('/', (req, res) => {
    res.send('Hello World!');
