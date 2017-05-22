@@ -8,6 +8,6 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
     //<App />,
-    <h1>Заметки</h1>
-    document.getElementById('mount-point')
+    <h1>Заметки</h1>,
+    document.getElementById('app')
 );

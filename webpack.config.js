@@ -7,14 +7,14 @@ module.exports = {
     entry: "./client/main.js",
     output: {
         path: __dirname + '/public/',
-        publicPath: "public/",
+        publicPath: "/",
         filename: "bundle.js"
     },
     module: {
         loaders: [
             {
                 test: /\.js$/,
-                loader: "babel",
+                loader: "babel-loader",
                 exclude: [/node_modules/, /public/]
             },
             {
